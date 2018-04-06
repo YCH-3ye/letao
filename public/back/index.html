@@ -16,11 +16,11 @@
   </div>
   <div class="aside-nav">
     <ul>
-      <li ><a href="#" class="active"><i class="glyphicon glyphicon-user"></i>用户管理</a></li>
-      <li >
-        <a href="#"><i class="glyphicon glyphicon-list"></i>分类管理</a>
+      <li><a href="#" class="active"><i class="glyphicon glyphicon-user"></i>用户管理</a></li>
+      <li>
+        <div class="list" href="#"><i class="glyphicon glyphicon-list"></i>分类管理</div>
         <div class="child">
-          <a class='active'>一级分类</a>
+          <a>一级分类</a>
           <a>二级分类</a>
         </div>
 
@@ -31,16 +31,36 @@
 </div>
 
 <div class="main-top">
-  <i class="glyphicon glyphicon-align-justify pull-left"></i>
-  <i class="glyphicon glyphicon-log-out pull-right"></i>
+  <i class="top-left glyphicon glyphicon-align-justify pull-left"></i>
+  <i class="top-right glyphicon glyphicon-log-out pull-right"></i>
 </div>
 
-<div class="main-container">
+<div class="main-container ">
+asdfasf
+</div>
 
+<div class="modal fade" tabindex="-1">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">温馨提示</h4>
+      </div>
+      <div class="modal-body">
+        <p class=' text-danger'><i class="glyphicon glyphicon-info-sign "></i>您确定要退出后台管理系统吗？</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary logoutBtn">退出</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
 </div>
 
 <script src="./lib/jquery/jquery.min.js"></script>
 <script src="./lib/bootstrap/js/bootstrap.js"></script>
 <script src="./lib/nprogress/nprogress.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/index.js"></script>
 </body>
 </html>
