@@ -5,7 +5,7 @@
   <title>Title</title>
   <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
-  <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="./css/common.css">
 </head>
 <body>
 <div class="aside">
@@ -16,7 +16,7 @@
   </div>
   <div class="aside-nav">
     <ul>
-      <li><a href="#" class="active"><i class="glyphicon glyphicon-user"></i>用户管理</a></li>
+      <li><a href="user.html" class="active"><i class="glyphicon glyphicon-user"></i>用户管理</a></li>
       <li>
         <div class="list" href="#"><i class="glyphicon glyphicon-list"></i>分类管理</div>
         <div class="child">
@@ -36,7 +36,17 @@
 </div>
 
 <div class="main-container ">
-asdfasf
+  <div class="container-fluid">
+    <ol class="breadcrumb">
+      <li><a href="#">管理系统</a></li>
+      <li class="main-nav">首页</li>
+    </ol>
+
+
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main-bar" class="pull-left" style="width: 40%;height:400px;"></div>
+    <div id="main-pie" class="pull-right" style="width: 40%;height:400px;"></div>
+  </div>
 </div>
 
 <div class="modal fade" tabindex="-1">
@@ -60,6 +70,7 @@ asdfasf
 <script src="./lib/jquery/jquery.min.js"></script>
 <script src="./lib/bootstrap/js/bootstrap.js"></script>
 <script src="./lib/nprogress/nprogress.js"></script>
+<script src="./lib/echarts/echarts.min.js"></script>
 <script src="./js/common.js"></script>
 <script src="./js/index.js"></script>
 </body>

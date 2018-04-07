@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="lib/nprogress/nprogress.css">
+  <link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+<div class="aside">
+  <h3>黑马19期</h3>
+  <div class="aside-user">
+    <img src="images/cc.jpg" alt="">
+    <p>管理员</p>
+  </div>
+  <div class="aside-nav">
+    <ul>
+      <li><a href="user.html" class="active"><i class="glyphicon glyphicon-user"></i>用户管理</a></li>
+      <li>
+        <div class="list" href="#"><i class="glyphicon glyphicon-list"></i>分类管理</div>
+        <div class="child">
+          <a>一级分类</a>
+          <a>二级分类</a>
+        </div>
+
+      </li>
+      <li><a href="#"><i class="glyphicon glyphicon-tag"></i>商品管理</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="main-top">
+  <i class="top-left glyphicon glyphicon-align-justify pull-left"></i>
+  <i class="top-right glyphicon glyphicon-log-out pull-right"></i>
+</div>
+
+<div class="main-container">
+  <div class="container-fluid">
+    <ol class="breadcrumb">
+      <li><a href="index.html">管理系统</a></li>
+      <li class="main-nav">用户管理</li>
+    </ol>
+
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th width="10%">序号</th>
+          <th width="30%">用户名</th>
+          <th width="30%">手机号</th>
+          <th width="20%">状态</th>
+          <th width="10%">操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>itcast</td>
+          <td>15102324243</td>
+          <td>正常</td>
+          <td>
+            <button class="btn btn-danger">禁用</button>
+          </td>
+        </tr>
+      </tbody>
+
+
+    </table>
+  </div>
+</div>
+
+
+</body>
+<script src="lib/jquery/jquery.min.js"></script>
+<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="lib/nprogress/nprogress.js"></script>
+<script src="lib/artTemplate/template-web.js"></script>
+<script src="js/common.js"></script>
+</html>
