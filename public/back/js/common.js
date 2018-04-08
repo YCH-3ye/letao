@@ -59,7 +59,7 @@ $(function() {
 
 
   $('.top-right').on('click',function() {
-    $('.modal').modal('show');
+    $('#loginout').modal('show');
   })
   $('.logoutBtn').on('click',function() {
     console.log(234);

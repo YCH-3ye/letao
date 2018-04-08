@@ -53,15 +53,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>itcast</td>
-          <td>15102324243</td>
-          <td>正常</td>
-          <td>
-            <button class="btn btn-danger">禁用</button>
-          </td>
-        </tr>
+       <!-- 刨个坑-->
       </tbody>
 
 
@@ -70,10 +62,65 @@
 </div>
 
 
+<div class="modal fade" id="loginout" tabindex="-1">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">温馨提示</h4>
+      </div>
+      <div class="modal-body">
+        <p class=' text-danger'><i class="glyphicon glyphicon-info-sign "></i>您确定要退出后台管理系统吗？</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary logoutBtn">退出</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
+
+<!--启用禁用模态框-->
+<div class="modal fade" id="judge" tabindex="-1">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">温馨提示</h4>
+      </div>
+      <div class="modal-body">
+        <p class=' text-danger'><i class="glyphicon glyphicon-info-sign "></i>你确定要执行此操作吗？</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary confirmBtn">确定</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
+
 </body>
 <script src="lib/jquery/jquery.min.js"></script>
 <script src="lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="lib/nprogress/nprogress.js"></script>
 <script src="lib/artTemplate/template-web.js"></script>
 <script src="js/common.js"></script>
+<script src="js/user.js"></script>
+<script type="text/html" id="usertmp">
+  {{ each rows v i}}
+    <tr>
+      <td>{{ v.id }}</td>
+      <td>{{ v.username }}</td>
+      <td>{{ v.mobile }}</td>
+      <td>{{ v.isDelete == 1? "正常":"禁用" }}</td>
+      <td data-id='{{ v.id }}' data-isdelete="{{ v.isDelete}}">
+        {{  if v.isDelete == 1 }}
+        <button class="btn btn-danger changebtn">禁用</button>
+        {{ else if v.isDelete == 0 }}
+        <button  class="btn btn-success changebtn">启用</button>
+        {{ /if }}
+      </td>
+    </tr>
+  {{ /each }}
+</script>
 </html>
