@@ -20,7 +20,6 @@ $(function() {
   }
   render();
 
-
   $('tbody').on('click','.changebtn',function() {
     $('#judge').modal('show');
     //  获取当前的id
@@ -47,7 +46,6 @@ $(function() {
           }
         }
       })
-
     })
   })
 

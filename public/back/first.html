@@ -5,6 +5,7 @@
   <title>Title</title>
   <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="lib/nprogress/nprogress.css">
+  <link rel="stylesheet" href="lib/bootstrap-validator/css/bootstrapValidator.css">
   <link rel="stylesheet" href="css/common.css">
 </head>
 <body>
@@ -16,12 +17,12 @@
   </div>
   <div class="aside-nav">
     <ul>
-      <li><a href="user.html" class="active"><i class="glyphicon glyphicon-user"></i>用户管理</a></li>
+      <li><a href="user.html" ><i class="glyphicon glyphicon-user"></i>用户管理</a></li>
       <li>
         <div class="list" href="#"><i class="glyphicon glyphicon-list"></i>分类管理</div>
-        <div class="child">
-          <a href="first.html">一级分类</a>
-          <a>二级分类</a>
+        <div class="child show">
+          <a href="first.html" class="active">一级分类</a>
+          <a href="second.html">二级分类</a>
         </div>
 
       </li>
@@ -35,32 +36,39 @@
   <i class="top-right glyphicon glyphicon-log-out pull-right"></i>
 </div>
 
-<div class="main-container">
+<div class="main-container ">
   <div class="container-fluid">
     <ol class="breadcrumb">
       <li><a href="index.html">管理系统</a></li>
-      <li class="main-nav">用户管理</li>
+      <li class="main-nav">分类管理</li>
+      <li class="main-nav">一级分类</li>
     </ol>
 
-    <table class="table table-bordered table-hover">
-      <thead>
+    <div class="add-container">
+      <button class="btn btn-default">添加分类</button>
+    </div>
+
+    <div class="table-container">
+      <table class="table table-bordered .table-hover">
+        <thead>
         <tr>
-          <th width="10%">序号</th>
-          <th width="30%">用户名</th>
-          <th width="30%">手机号</th>
-          <th width="20%">状态</th>
-          <th width="10%">操作</th>
+          <th width="20%">序号</th>
+          <th width="80%">用户名</th>
         </tr>
-      </thead>
-      <tbody>
-       <!-- 刨个坑-->
-      </tbody>
+        </thead>
+        <tbody>
+        <!-- 刨个坑  -->
+        </tbody>
+      </table>
+      <div class="text-right">
+          <ul id="pagintor">
 
+          </ul>
+      </div>
+    </div>
 
-    </table>
   </div>
 </div>
-
 
 <div class="modal fade" id="loginout" tabindex="-1">
   <div class="modal-dialog modal-sm">
@@ -80,8 +88,7 @@
   </div><!-- /.modal-dialog -->
 </div>
 
-<!--启用禁用模态框-->
-<div class="modal fade" id="judge" tabindex="-1">
+<div class="modal fade" id="change" tabindex="-1">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <div class="modal-header">
@@ -89,38 +96,54 @@
         <h4 class="modal-title">温馨提示</h4>
       </div>
       <div class="modal-body">
-        <p class=' text-danger'><i class="glyphicon glyphicon-info-sign "></i>你确定要执行此操作吗？</p>
+        <p class=' text-danger'><i class="glyphicon glyphicon-info-sign "></i>您确定要退出后台管理系统吗？</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-        <button type="button" class="btn btn-primary confirmBtn">确定</button>
+        <button type="button" class="btn btn-primary logoutBtn">退出</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div>
 
-</body>
-<script src="lib/jquery/jquery.min.js"></script>
-<script src="lib/bootstrap/js/bootstrap.min.js"></script>
-<script src="lib/nprogress/nprogress.js"></script>
-<script src="lib/artTemplate/template-web.js"></script>
-<script src="js/common.js"></script>
-<script src="js/user.js"></script>
-<script type="text/html" id="usertmp">
-  {{ each rows v i}}
-    <tr>
-      <td>{{ v.id }}</td>
-      <td>{{ v.username }}</td>
-      <td>{{ v.mobile }}</td>
-      <td>{{ v.isDelete == 1? "正常":"禁用" }}</td>
-      <td data-id='{{ v.id }}' data-isdelete="{{ v.isDelete}}">
-        {{  if v.isDelete == 1 }}
-        <button class="btn btn-danger changebtn">禁用</button>
-        {{ else if v.isDelete == 0 }}
-        <button  class="btn btn-success changebtn">启用</button>
-        {{ /if }}
-      </td>
+<div class="modal fade" id="addform" tabindex="-1">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">添加分类</h4>
+      </div>
+      <div class="modal-body">
+        <form id="form">
+          <div class="form-group">
+            <input type="text" name="categoryName" class="form-control" id="exampleInputEmail1" placeholder="请添加一级分类的名称">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="submit" class="btn btn-primary addBtn" form="form">添加</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
+
+<script type="text/html" id="table-tmp">
+  {{ each rows v i }}
+    <tr >
+      <td>{{ (page-1)*size+i+1 }}</td>
+      <td>{{ v.categoryName }}</td>
     </tr>
   {{ /each }}
 </script>
+
+<script src="lib/jquery/jquery.min.js"></script>
+<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="lib/bootstrap-paginator/bootstrap-paginator.js"></script>
+<script src="lib/bootstrap-validator/js/bootstrapValidator.js"></script>
+<script src="lib/nprogress/nprogress.js"></script>
+<script src="lib/artTemplate/template-web.js"></script>
+<script src="js/common.js"></script>
+<script src="js/first.js"></script>
+</body>
 </html>
