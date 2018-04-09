@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="lib/nprogress/nprogress.css">
+  <link rel="stylesheet" href="lib/bootstrap-validator/css/bootstrapValidator.css">
+  <link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+
+<div class="aside">
+  <h3>黑马19期</h3>
+  <div class="aside-user">
+    <img src="images/cc.jpg" alt="">
+    <p>管理员</p>
+  </div>
+  <div class="aside-nav">
+    <ul>
+      <li><a href="user.html" ><i class="glyphicon glyphicon-user"></i>用户管理</a></li>
+      <li>
+        <div class="list" href="#"><i class="glyphicon glyphicon-list"></i>分类管理</div>
+        <div class="child show">
+          <a href="first.html">一级分类</a>
+          <a href="second.html"  class="active">二级分类</a>
+        </div>
+
+      </li>
+      <li><a href="#"><i class="glyphicon glyphicon-tag"></i>商品管理</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="main-top">
+  <i class="top-left glyphicon glyphicon-align-justify pull-left"></i>
+  <i class="top-right glyphicon glyphicon-log-out pull-right"></i>
+</div>
+
+<div class="main-container ">
+  <div class="container-fluid">
+    <ol class="breadcrumb">
+      <li><a href="index.html">管理系统</a></li>
+      <li class="main-nav">分类管理</li>
+      <li class="main-nav">二级分类</li>
+    </ol>
+
+    <div class="add-container">
+      <button class="btn btn-default addbtn">添加分类</button>
+    </div>
+
+    <div class="table-container">
+      <table class="table table-bordered .table-hover">
+        <thead>
+        <tr>
+          <th width="10%">序号</th>
+          <th width="30%">一级分类名称</th>
+          <th width="30%">二级分类名称</th>
+          <th width="30%">二级分类LOGO</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- 刨个坑  -->
+
+        </tbody>
+      </table>
+      <div class="text-right">
+        <ul id="pagintor">
+
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="modal fade" id="loginout" tabindex="-1">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">温馨提示</h4>
+      </div>
+      <div class="modal-body">
+        <p class=' text-danger'><i class="glyphicon glyphicon-info-sign "></i>您确定要退出后台管理系统吗？</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary logoutBtn">退出</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
+
+<!--<div class="modal fade" id="change" tabindex="-1">-->
+  <!--<div class="modal-dialog modal-sm">-->
+    <!--<div class="modal-content">-->
+      <!--<div class="modal-header">-->
+        <!--<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>-->
+        <!--<h4 class="modal-title">温馨提示</h4>-->
+      <!--</div>-->
+      <!--<div class="modal-body">-->
+        <!--<p class=' text-danger'><i class="glyphicon glyphicon-info-sign "></i>您确定要退出后台管理系统吗？</p>-->
+      <!--</div>-->
+      <!--<div class="modal-footer">-->
+        <!--<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>-->
+        <!--<button type="button" class="btn btn-primary logoutBtn">退出</button>-->
+      <!--</div>-->
+    <!--</div>&lt;!&ndash; /.modal-content &ndash;&gt;-->
+  <!--</div>&lt;!&ndash; /.modal-dialog &ndash;&gt;-->
+<!--</div>-->
+
+<div class="modal fade" id="addform" tabindex="-1">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">添加分类</h4>
+      </div>
+      <div class="modal-body">
+        <form id="form">
+          <div class="form-group">
+            <div class="dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" >
+                请选择一级分类
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" >
+                <!--刨个坑-->
+              </ul>
+            </div>
+            <input type="hidden" name="categoryId">
+            <input type="hidden" name="hot" value="1">
+          </div>
+          <div class="form-group">
+            <input type="text" name="brandName" class="form-control" id="exampleInputEmail1" placeholder="请添加二级分类的名称">
+          </div>
+          <!--上传图片-->
+          <div class="form-group">
+            <label class="btn btn-default" for="fileupload">上传图片</label>
+            <input type="file" name="pic1" data-url="/category/addSecondCategoryPic" id="fileupload" style="display: none;">
+          </div>
+          <div class="form-group" id="imgBox">
+            <img src="images/none.png" width="100">
+            <input type="hidden" name="brandLogo">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="submit" class="btn btn-primary addBtn" form="form">添加</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
+
+<script type="text/html" id="table-tmp">
+  {{ each rows v i }}
+    <tr>
+      <td>{{ (page-1)*size+(i+1) }}</td>
+      <td>{{ v.categoryName }}</td>
+      <td>{{ v.brandName }}</td>
+      <td><img src="{{ v.brandLogo }}" width="80px" alt=""></td>
+    </tr>
+  {{ /each }}
+</script>
+
+<script type="text/html" id="down-tmp">
+  {{each rows v i}}
+  <li><a href="#" data-id="{{v.id}}">{{v.categoryName}}</a></li>
+
+  {{/each}}
+</script>
+
+
+<script src="lib/jquery/jquery.min.js"></script>
+<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="lib/bootstrap-validator/js/bootstrapValidator.js"></script>
+<script src="lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+<script src="lib/nprogress/nprogress.js"></script>
+<script src="lib/artTemplate/template-web.js"></script>
+<script src="lib/jquery-fileupload/jquery.ui.widget.js"></script>
+<script src="lib/jquery-fileupload/jquery.fileupload.js"></script>
+<script src="js/common.js"></script>
+<script src="js/second.js"></script>
+</body>
+</html>
