@@ -82,11 +82,8 @@ $(function() {
       $('#form').data('bootstrapValidator').updateStatus('brandLogo','VALID');
     }
   })
-
-
   $('#form').bootstrapValidator({
     excluded:[],
-
     // 配置图标
     feedbackIcons: {
       valid: 'glyphicon glyphicon-ok',
