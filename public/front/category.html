@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="lib/mui/css/mui.css">
+  <link rel="stylesheet" href="lib/fa/css/font-awesome.css">
+  <link rel="stylesheet" href="css/comment.css">
+  <link rel="stylesheet" href="css/category.css">
+</head>
+<body>
+
+<div class="lt-container">
+  <div class="lt-header">
+    <a href="index.html" class="icon-left"><i class="fa fa-home"></i></a>
+    <a href="#" class="icon-right"><i class="fa fa-search"></i></a>
+    <h3 class="header-container">乐淘云购</h3>
+  </div>
+
+
+  <!--左边nav-->
+  <div class="cate-left">
+    <div class="mui-scroll-wrapper">
+      <div class="mui-scroll">
+        <ul class="mui-clearfix">
+          <li><a href="#">haha</a></li>
+
+
+
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="cate-right">
+    <div class="mui-scroll-wrapper">
+      <div class="mui-scroll">
+        <!--这里放置真实显示的DOM内容-->
+        <ul class="mui-clearfix">
+          <li>
+            <a href="#">
+              <img src="" alt="">
+              <p>耐克</p>
+            </a>
+          </li>
+        </ul>
+        
+        
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="lt-foot">
+    <ul>
+      <li><a href="index.html"><i class="fa fa-home"></i>
+        <p>首页</p></a></li>
+      <li><a href="category.html"  class="current"><i class="fa fa-bars"></i>
+        <p>分类页</p></a></li>
+      <li><a href="#"><i class="fa fa-shopping-cart"></i>
+        <p>购物车</p></a></li>
+      <li><a href="#"><i class="fa fa-user"></i>
+        <p>会员中心</p></a></li>
+    </ul>
+  </div>
+</div>
+
+<script type="text/html" id="nav-tmp">
+  {{ each rows v i }}
+  <li><a href="#" class="{{i==0? 'current':''}}" data-id="{{v.id}}">{{v.categoryName}}</a></li>
+  {{ /each}}
+</script>
+
+<script type="text/html" id="second-tmp">
+  {{if rows.length == 0}}
+  <p>没有更多分内信息</p>
+
+  {{/if}}
+  {{each rows v i}}
+
+    <li>
+      <a href="#">
+        <img src="{{v.brandLogo}}" alt="">
+        <p>{{v.brandName}}</p>
+      </a>
+    </li>
+
+
+  {{/each}}
+</script>
+<script src="lib/mui/js/mui.min.js"></script>
+<script src="lib/zepto/zepto.min.js"></script>
+<script src="lib/artTemplate/template-web.js"></script>
+<script src="js/common.js"></script>
+<script src="js/category.js"></script>
+</body>
+</html>

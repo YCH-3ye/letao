@@ -1,0 +1,11 @@
+.mui-scroll-wrapper {
+  position: relative;
+  height: 100%;
+}
+.nav {
+  padding: 10px;
+}
+.nav li{
+  width: 33.33%;
+  float: left;
+}
