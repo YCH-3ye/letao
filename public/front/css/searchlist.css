@@ -1,0 +1,18 @@
+.search-title {
+  height: 30px;
+  background-color: #eee;
+}
+.search-title li {
+  font-size: 12px;
+  line-height:30px;
+  text-align: center;
+  width: 25%;
+  float: left;
+}
+
+.search-title li a {
+  color: #666;
+}
+.search-title .current{
+  color:orange;
+}

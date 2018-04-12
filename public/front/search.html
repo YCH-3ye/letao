@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="lib/mui/css/mui.css">
+  <link rel="stylesheet" href="lib/fa/css/font-awesome.css">
+  <link rel="stylesheet" href="css/comment.css">
+  <link rel="stylesheet" href="css/search.css">
+</head>
+<body>
+
+<div class="lt-container">
+  <div class="lt-header">
+    <a href="javascript:history.go(-1);" class="icon-left"><i class="mui-icon mui-icon-back"></i></a>
+    <h3 class="header-container">搜索中心</h3>
+  </div>
+
+  <div class="lt-mian">
+    <!--搜索框-->
+    <div class="lt-search">
+      <input type="text" placeholder="请输入搜索内容">
+      <button class="mui-btn mui-btn-primary">搜索</button>
+    </div>
+
+    <!--搜索内容-->
+    <div class="search-content">
+      <div class="content-title">
+        <h4>搜索历史</h4>
+        <span><i class="fa fa-trash"></i>清空记录</span>
+      </div>
+
+      <div class="content-main">
+        <ul>
+          <li><a href="#">鞋子</a><i class="mui-icon mui-icon-closeempty mui-pull-right btn_delete"></i></li>
+          <li><a href="#">鞋子</a><i class="mui-icon mui-icon-closeempty mui-pull-right btn_delete"></i></li>
+          <li><a href="#">鞋子</a><i class="mui-icon mui-icon-closeempty mui-pull-right btn_delete"></i></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+
+  <div class="lt-foot">
+    <ul>
+      <li><a href="index.html"><i class="fa fa-home"></i>
+        <p>首页</p></a></li>
+      <li><a href="category.html"><i class="fa fa-bars"></i>
+        <p>分类页</p></a></li>
+      <li><a href="#"><i class="fa fa-shopping-cart"></i>
+        <p>购物车</p></a></li>
+      <li><a href="#"><i class="fa fa-user"></i>
+        <p>会员中心</p></a></li>
+    </ul>
+  </div>
+</div>
+
+
+<script type="text/html" id="search-tmp">
+
+  <!--if判断如果没有数据则返回一条信息没有历史信息-->
+  {{ if arr.length == 0 }}
+
+  <p>没有历史信息</p>
+
+  {{ else }}
+  <!--搜索内容-->
+  <div class="search-content">
+    <div class="content-title">
+      <h4>搜索历史</h4>
+      <span><i class="fa fa-trash"></i>清空记录</span>
+    </div>
+
+    <div class="content-main">
+      <ul>
+       {{each arr v i}}
+        <li><a href="searchlist.html?id=v">{{v}}</a><i data-id="{{i}}" class="mui-icon mui-icon-closeempty mui-pull-right btn_delete"></i></li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+
+  {{ /if }}
+</script>
+<script src="lib/mui/js/mui.min.js"></script>
+<script src="lib/zepto/zepto.min.js"></script>
+<script src="lib/artTemplate/template-web.js"></script>
+<script src="js/common.js"></script>
+<script src="js/search.js"></script>
+</body>
+</html>

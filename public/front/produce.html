@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="lib/mui/css/mui.css">
+  <link rel="stylesheet" href="lib/fa/css/font-awesome.css">
+  <link rel="stylesheet" href="css/comment.css">
+  <link rel="stylesheet" href="css/produce.css">
+</head>
+<body>
+
+<div class="lt-container">
+  <div class="lt-header">
+    <a href="javascript:history.go(-1);" class="icon-left"><i class="mui-icon mui-icon-back"></i></a>
+    <h3 class="header-container">搜索中心</h3>
+  </div>
+  <div class="lt-mian">
+    <div class="mui-scroll-wrapper">
+      <div class="mui-scroll">
+
+        <!--solid-->
+        <div class="lt-mian">
+          <div class="mui-slider">
+            <div class="mui-slider-group mui-slider-loop">
+              <!--支持循环，需要重复图片节点-->
+              <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="images/banner3.png"/></a>
+              </div>
+              <div class="mui-slider-item"><a href="#"><img src="images/banner1.png"/></a></div>
+              <div class="mui-slider-item"><a href="#"><img src="images/banner2.png"/></a></div>
+              <div class="mui-slider-item"><a href="#"><img src="images/banner3.png"/></a></div>
+              <!--支持循环，需要重复图片节点-->
+              <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="images/banner1.png"/></a>
+              </div>
+            </div>
+            <div class="mui-slider-indicator">
+              <div class="mui-indicator mui-active"></div>
+              <div class="mui-indicator"></div>
+              <div class="mui-indicator"></div>
+            </div>
+          </div>
+
+
+        </div>
+
+
+        <!--info-->
+        <div class="produce-info">
+          <p>李宁闪击篮球鞋驭帅10镭射队尚4男韦德之道空袭中高帮队尚3.5球鞋</p>
+        </div>
+
+        <!--pirce-->
+        <div class="produce-pirce">
+          <span>价格：</span>
+          <span class="pirce">￥499.1</span>
+          <span class="old">￥888.1</span>
+        </div>
+
+        <!--尺码-->
+        <div class="produce-size">
+          尺码：
+          <span>35</span>
+          <span>36</span>
+          <span>37</span>
+          <span>38</span>
+          <span>39</span>
+          <span>40</span>
+          <span>41</span>
+          <span>42</span>
+          <span>43</span>
+          <span>44</span>
+          <span>45</span>
+        </div>
+
+        <!--数量-->
+        <div class="produce-sum">
+          数量：
+          <div class="mui-numbox">
+            <!-- "-"按钮，点击可减小当前数值 -->
+            <button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
+            <input class="mui-numbox-input" type="number"/>
+            <!-- "+"按钮，点击可增大当前数值 -->
+            <button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
+          </div>
+          <span>剩余数量 ：20双</span>
+        </div>
+
+        <!--详情描述-->
+        <div class="produce-describe">
+          详情：描述
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
+
+  <div class="lt-foot">
+    <span>去购物车</span>
+    <div class="mui-pull-right">
+      <button class="mui-btn mui-btn-danger">
+        加入购物车
+      </button>
+      <button class="mui-btn mui-btn-warning">立即购买</button>
+    </div>
+
+  </div>
+</div>
+
+
+  <script type="text/html" id="produce-tmp">
+
+    {{each data v i}}
+    <li>
+      <a href="produce.html?produceid={{v.id}}">
+        <img src="{{v.pic[0].picAddr}}" alt="">
+        <p class="mui-ellipsis-2">{{v.proName}} </p>
+        <p>
+          <span class='new'>{{v.price}}</span>
+          <span class="old">{{v.oldPrice}}</span>
+        </p>
+        <button class="mui-btn mui-btn-primary">立即购买</button>
+      </a>
+    </li>
+    {{ /each }}
+  </script>
+  <script src="lib/mui/js/mui.min.js"></script>
+  <script src="lib/zepto/zepto.min.js"></script>
+  <script src="lib/artTemplate/template-web.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/produce.js"></script>
+</body>
+</html>
